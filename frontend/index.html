@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="icon" type="image/svg+xml" href="/wails.png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="/style.css"/>
+    <title>Trading Journal</title>
+</head>
+<body>
+<div class="container" style="max-width: 1100px; width: 100%; padding: 16px;">
+    <h1 style="margin: 0 0 12px 0;">Trading Journal</h1>
+
+    <div style="display:flex; gap:8px; align-items:center; margin-bottom: 12px;">
+        <button id="ping-btn" class="btn">Ping App</button>
+        <span id="ping-result" style="opacity: 0.8;"></span>
+        <div style="flex:1"></div>
+        <div><p id="time">Listening for Time event...</p></div>
+    </div>
+
+    <div id="filters" style="display:flex; gap:8px; margin-bottom: 12px; align-items: center;">
+        <input id="filter-symbol" class="input" placeholder="Symbol" />
+        <select id="filter-side" class="input" style="height:30px;">
+            <option value="">Side</option>
+            <option value="long">Long</option>
+            <option value="short">Short</option>
+        </select>
+        <input id="filter-start" class="input" type="date" />
+        <input id="filter-end" class="input" type="date" />
+        <button id="apply-filters" class="btn">Apply</button>
+    </div>
+
+    <div id="analytics" style="display:grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap:8px; margin-bottom: 12px;">
+        <div class="card"><div>Win Rate</div><div id="metric-winRate">-</div></div>
+        <div class="card"><div>Profit Factor</div><div id="metric-profitFactor">-</div></div>
+        <div class="card"><div>Max DD</div><div id="metric-maxDD">-</div></div>
+        <div class="card"><div>Sharpe</div><div id="metric-sharpe">-</div></div>
+        <div class="card"><div>Sortino</div><div id="metric-sortino">-</div></div>
+        <div class="card"><div>Expectancy</div><div id="metric-expectancy">-</div></div>
+    </div>
+
+    <div id="trades" class="card" style="text-align:left;">
+        <div style="font-weight:600; margin-bottom: 6px;">Trades</div>
+        <div id="trades-placeholder">No data yet</div>
+    </div>
+
+    <div id="chart" class="card" style="margin-top:12px; text-align:left;">
+        <div style="font-weight:600; margin-bottom: 6px;">Equity Chart</div>
+        <div>Placeholder — expects prop equityPoints: Array&lt;{t:string; v:number}&gt;</div>
+    </div>
+
+    <div id="import" class="card" style="margin-top:12px; text-align:left;">
+        <div style="font-weight:600; margin-bottom: 6px;">CSV Import (stub)</div>
+        <textarea id="csv-text" rows="4" style="width:100%" placeholder="Paste CSV here (symbol,side,entry_time,exit_time,entry_price,exit_price,qty,fees,notes)"></textarea>
+        <div style="margin-top:6px; display:flex; gap:8px; align-items:center;">
+            <button id="import-btn" class="btn">Import CSV</button>
+            <span id="import-result" style="opacity:0.8"></span>
+        </div>
+    </div>
+
+</div>
+<script type="module" src="/main.js"></script>
+</body>
+</html>
