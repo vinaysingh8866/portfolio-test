@@ -1,0 +1,9 @@
+{
+  "winRate": 0.5,
+  "profitFactor": 1.6,
+  "maxDD": 20,
+  "sharpe": 0.2,
+  "sortino": 0.3,
+  "expectancy": 10
+}
+
